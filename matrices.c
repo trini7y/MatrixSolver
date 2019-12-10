@@ -1,44 +1,32 @@
 #include <stdio.h>
-// #define ROW 2
-// #define COLUMN 2
+#define ROW 2
+#define COLUMN 2
 
-// N is the column of the matrix
-// M is the row of the matrix
-
-int add(int A[][ n ], int B[][ n ], int C[][ n ]);
-int sub(int A[][ n ], int B[][ n ], int C[][ n ]);
+int add(int A[][ COLUMN ], int B[][ COLUMN ], int C[][ COLUMN ]);
+int sub(int A[][ COLUMN ], int B[][ COLUMN ], int C[][ COLUMN ]);
 
 int main(void){
 
-	printf("This program solves M x N matrix");
-
-	int m, n;
-	printf("Enter the M x N matrix:");
-	scanf("%d %d", &m, &n);
-
-	int a[ m ][ n ];
-	// int b[ ROW ][ COLUMN ];
-	int c[ m ][ n ];
-
+	int a[ ROW ][ COLUMN ];
+	int b[ ROW ][ COLUMN ];
+	int c[ ROW ][ COLUMN ];
 	size_t i;
 	size_t j;
 
-	
-
 	// Gets the values of matrix A
-	for( i = 0; i < m; ++i){
-		for( j = 0; j < n; ++j){
+	for( i = 0; i < ROW; ++i){
+		for( j = 0; j < COLUMN; ++j){
 			int matrix_a;
-			printf("Enter the Element (a)m %lu n %lu  :",  i , j );
+			printf("Enter the Element (a)row %lu column %lu  :",  i , j );
 			scanf("%d", &matrix_a);
 			a[ i ][ j ] = matrix_a;
 	  }	
 	}
 	// Gets the values of matrix B
-	for( i = 0; i < m; ++i){
-		for( j = 0; j < n; ++j){
+	for( i = 0; i < ROW; ++i){
+		for( j = 0; j < COLUMN; ++j){
 			int matrix_b;
-			printf("Enter the Element (b)m %lu n %lu  :", i,  j  );
+			printf("Enter the Element (b)row %lu column %lu  :", i,  j  );
 			scanf("%d", &matrix_b);
 			b[ i ][ j ] = matrix_b;
 	  }	
@@ -75,11 +63,11 @@ int main(void){
 }	
 
 // Adds Matrix  and B
-int add(int A[][ n ], int B[][ n ], int C[][ n ]){
+int add(int A[][ COLUMN ], int B[][ COLUMN ], int C[][ COLUMN ]){
 	size_t i;
 	size_t j;
-	for(i = 0; i < m; ++i){
-		for( j = 0; j < n; ++j){
+	for(i = 0; i < ROW; ++i){
+		for( j = 0; j < COLUMN; ++j){
 			int total;
 			total = A[i][j] + B[i][j];
 			C[i][j] = total;
@@ -87,8 +75,8 @@ int add(int A[][ n ], int B[][ n ], int C[][ n ]){
 	}
 
 	printf("The total value after summing matrix a and b is\n ");
-	for(i = 0; i < m; ++i ){
-		for (j = 0; j < n; ++j)
+	for(i = 0; i < ROW; ++i ){
+		for (j = 0; j < COLUMN; ++j)
 		{
 			printf("%d \t", C[i][j]);
 		}
@@ -96,20 +84,20 @@ int add(int A[][ n ], int B[][ n ], int C[][ n ]){
 	printf("\n");
 }
 
-int sub(int A[][ n ], int B[][ n ], int C[][ n ]){
+int sub(int A[][ COLUMN ], int B[][ COLUMN ], int C[][ COLUMN ]){
 	size_t i;
 	size_t j;
 
-	for(i = 0; i < m; ++i){
-		for( j = 0; j < n; ++j){
+	for(i = 0; i < ROW; ++i){
+		for( j = 0; j < COLUMN; ++j){
 			int total;
 			total = A[i][j] - B[i][j];
 			C[i][j] = total;
 		}
 	}
 	printf("The total value after subtracting matrix a and b is\n ");
-	for(i = 0; i < m; ++i ){
-		for (j = 0; j < n; ++j)
+	for(i = 0; i < ROW; ++i ){
+		for (j = 0; j < COLUMN; ++j)
 		{
 			printf("%d \t", C[i][j]);
 		}
